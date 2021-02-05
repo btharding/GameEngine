@@ -11,7 +11,7 @@ import javax.imageio.ImageIO;
  * (if there is more than one instance of a given complex case, form it into its own interface extending this)<br>
  * <br>
  * <b>Required class variables</b><br>
- * <code>static BufferedImage sprite; //Static so it is only loaded once, rather than for every instance of the object<br>
+ * <code>static BufferedImage sprite;<br>
  * static String url = "path/to/image.png";</code><br>
  * <br>
  * <b>In the constructor</b><br>

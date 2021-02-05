@@ -26,6 +26,9 @@ public class Game extends Canvas implements Runnable{
 	public static KeyInput keyInput = new KeyInput();
 	public static MouseInput mouseInput = new MouseInput();
 	
+	ExampleKeyListener e1;
+	ExampleMouseListener e2;
+	
 	/**
 	 * For everything that you want performed every frame.<br>
 	 * Try to abstract everything to class-level tick() functions, rather than here
@@ -64,6 +67,8 @@ public class Game extends Canvas implements Runnable{
 		this.addKeyListener(keyInput);
 		this.addMouseListener(mouseInput);
 		this.addMouseMotionListener(mouseInput);
+		e1 = new ExampleKeyListener(100, 100, 2);
+		e2 = new ExampleMouseListener();
 	}
 	
 	public static void main(String[] args){

@@ -11,14 +11,12 @@ import java.awt.event.KeyEvent;
 public interface KeyListener {
 	/**
 	 * keyPressed event that is called by KeyInput.java every time a keyPressed event is detected.<br>
-	 * Blank by default for code clarity
 	 * @param e The KeyEvent broadcasted by KeyInput
 	 */
-	default public void keyPressed(KeyEvent e) {};
+	public void keyPressed(KeyEvent e);
 	/**
 	 * keyReleased event that is called by KeyInput.java every time a keyReleased event is detected.<br>
-	 * Blank by default for code clarity
 	 * @param e The KeyEvent broadcasted by KeyInput
 	 */
-	default public void keyReleased(KeyEvent e) {};
+	public void keyReleased(KeyEvent e);
 }
