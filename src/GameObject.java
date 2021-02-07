@@ -1,5 +1,4 @@
 import java.awt.Graphics;
-import java.awt.Rectangle;
 
 /**
  * Superclass for all objects within the game.<br>

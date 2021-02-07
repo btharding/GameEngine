@@ -1,5 +1,4 @@
 import java.awt.Point;
-import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.LinkedList;
 
@@ -62,6 +61,13 @@ public class MouseInput implements MouseInputListener{
 	public void mouseMoved(MouseEvent e) {
 		MouseInput.mousePos = e.getPoint();
 	}
+	
+	/**
+	 * Updates MouseInput.mousePos to the current mouse location every time it moves.
+	 */
+	public void mouseDragged(MouseEvent e) {
+		MouseInput.mousePos = e.getPoint();
+	}
 
 	public void mousePressed(MouseEvent e) {
 	}
@@ -73,8 +79,5 @@ public class MouseInput implements MouseInputListener{
 	}
 
 	public void mouseExited(MouseEvent e) {
-	}
-
-	public void mouseDragged(MouseEvent e) {
 	}
 }

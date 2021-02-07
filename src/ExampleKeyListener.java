@@ -1,25 +1,39 @@
 import java.awt.Graphics;
+import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
+import java.util.LinkedList;
 
-public class ExampleKeyListener extends GameObject implements KeyListener, GraphicalObject{
+public class ExampleKeyListener extends GameObject implements KeyListener, GraphicalObject, CollidingObject{
 	
 	private int velX, velY;
 	private static BufferedImage sprite;
 	private static String url = "./img/Anglerfish.png";
 	
+	
 	public ExampleKeyListener(float x, float y, int z) {
 		super(x, y, z, 64, 32);
 		this.velX = 0;
 		this.velY = 0;
-		sprite = this.loadImage(this.url);
+		sprite = this.loadImage(ExampleKeyListener.url);
+		CollidingObject.addCollider(this);
 		Game.keyInput.addListener(this);
 		Game.handler.addObject(this);
 	}
 
 	public void tick() {
-		this.x += this.velX;
-		this.y += this.velY;
+		move();
+		CollidingObject.getCollisions(this);
+		
+	}
+	
+	private void move() {
+		if(!SolidCollider.willCauseSolidCollision(this, this.velX, true)) {
+			this.x += this.velX;
+		}
+		if(!SolidCollider.willCauseSolidCollision(this, this.velY, false)) {
+			this.y += this.velY;
+		}
 	}
 
 	public void render(Graphics g) {
@@ -51,6 +65,15 @@ public class ExampleKeyListener extends GameObject implements KeyListener, Graph
 		if(key == KeyEvent.VK_S || key == KeyEvent.VK_W) {
 			this.velY = 0;
 		}
+	}
+
+	@Override
+	public void handleCollisions(LinkedList<CollidingObject> collisions) {
+	}
+
+	@Override
+	public Rectangle getBounds() {
+		return new Rectangle((int)this.x, (int)this.y, this.width, this.height);
 	}
 
 }

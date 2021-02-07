@@ -3,12 +3,13 @@ import java.util.LinkedList;
 
 /**
  * Interface to be implemented by any object with a collision interaction<br>
+ * This is a general purpose collider interface, extend this with any specific types of collisions (e.g. SolidCollider)<br>
  * <br>
  * <b>In the constructor</b><br>
- * <code>CollidingObject.addCollider(this)</code><br>
+ * <code>CollidingObject.addCollider(this);</code><br>
  * <br>
  * <b>In the tick method</b><br>
- * <code>CollidingObject.getCollisions(this)</code>
+ * <code>CollidingObject.getCollisions(this);</code>
  */
 public interface CollidingObject {
 	
