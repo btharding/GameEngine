@@ -5,7 +5,7 @@ import java.awt.event.MouseEvent;
  * MouseInput.java maintains a list of key listeners, and calls their mouseClicked when an event is registered<br>
  * <br>
  * <b>In the constructor</b><br>
- * <code>Game.MouseInput.addClickListener(this);</code>
+ * <pre>Game.MouseInput.addClickListener(this);</pre>
  */
 public interface MouseClickListener {
 	/**

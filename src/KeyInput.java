@@ -6,7 +6,7 @@ import java.util.LinkedList;
  * A keyboard listener class.<br>
  * <br>
  * <b>This should be public and static in the game class, and registered as a key listener in the Game constructor</b><br>
- * <code>this.addKeyListener(keyInput);</code>
+ * <pre>this.addKeyListener(keyInput);</pre>
  */
 public class KeyInput extends KeyAdapter{
 	

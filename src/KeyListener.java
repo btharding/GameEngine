@@ -6,7 +6,7 @@ import java.awt.event.KeyEvent;
  * KeyInput.java maintains a list of key listeners, and calls their keyPressed and keyReleased functions when an event is registered<br>
  * <br>
  * <b>In the constructor</b><br>
- * <code>Game.keyInput.addListener(this);</code>
+ * <pre>Game.keyInput.addListener(this);</pre>
  */
 public interface KeyListener {
 	/**

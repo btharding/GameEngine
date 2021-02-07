@@ -12,7 +12,7 @@ public abstract class GameObject {
 	/**
 	 * GameObject constructor.<br>
 	 * This should be called in every subclass's constructor<br>
-	 * <code>super(x, y, z, width, height);</code>
+	 * <pre>super(x, y, z, width, height);</pre>
 	 * @param x The starting x coordinate of the object
 	 * @param y The starting y coordinate of the object
 	 * @param z The z index of the coordinate. Higher indexes are rendered on top of later indexes.

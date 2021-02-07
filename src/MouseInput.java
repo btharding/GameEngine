@@ -9,7 +9,8 @@ import javax.swing.event.MouseInputListener;
  * <br>
  * <b>This should be public and static in the game class, and registered as a mouse listener and mouse motion listener in the Game constructor</b><br>
  * Contains a public static Point storing the position of the mouse on the screen<br>
- * <code>this.addMouseListener(mouseInput);<br>this.addMouseMotionListener(mouseInput);</code>
+ * <pre>this.addMouseListener(mouseInput);
+ * this.addMouseMotionListener(mouseInput);</pre>
  */
 public class MouseInput implements MouseInputListener{
 	/**
@@ -18,7 +19,7 @@ public class MouseInput implements MouseInputListener{
 	private static LinkedList<MouseClickListener> clickListeners = new LinkedList<MouseClickListener>();
 	
 	/**
-	 * The location of the mouse on the screen. X and Y coordinates can be accessed directly (i.e. <code>MouseInput.mousePos.x</code>)
+	 * The location of the mouse on the screen. X and Y coordinates can be accessed directly (i.e. <pre>MouseInput.mousePos.x</pre>)
 	 */
 	public static Point mousePos;
 	

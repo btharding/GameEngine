@@ -2,14 +2,14 @@ import java.awt.Rectangle;
 import java.util.LinkedList;
 
 /**
- * Interface to be implemented by any object with a collision interaction<br>
- * This is a general purpose collider interface, extend this with any specific types of collisions (e.g. SolidCollider)<br>
- * <br>
- * <b>In the constructor</b><br>
- * <code>CollidingObject.addCollider(this);</code><br>
- * <br>
- * <b>In the tick method</b><br>
- * <code>CollidingObject.getCollisions(this);</code>
+ * <p>Interface to be implemented by any object with a collision interaction<br>
+ * This is a general purpose collider interface, extend this with any specific types of collisions (e.g. SolidCollider)</p>
+ * 
+ * <b>In the constructor</b>
+ * <pre>CollidingObject.addCollider(this);</pre>
+ * 
+ * <b>In the tick method</b>
+ * <pre>CollidingObject.getCollisions(this);</pre>
  */
 public interface CollidingObject {
 	
@@ -56,7 +56,7 @@ public interface CollidingObject {
 	
 	/**
 	 * A required function for all classes extending CollidingObject.<br>
-	 * @return A Rectangle showing the bounds of an object. Typically <code>return new Rectangle((int)this.x, (int)this.y, this.width, this.height);</code>
+	 * @return A Rectangle showing the bounds of an object. Typically <pre>return new Rectangle((int)this.x, (int)this.y, this.width, this.height);</pre>
 	 */
 	Rectangle getBounds();	
 }

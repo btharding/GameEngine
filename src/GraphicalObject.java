@@ -11,14 +11,14 @@ import javax.imageio.ImageIO;
  * (if there is more than one instance of a given complex case, form it into its own interface extending this)<br>
  * <br>
  * <b>Required class variables</b><br>
- * <code>static BufferedImage sprite;<br>
- * static String url = "path/to/image.png";</code><br>
+ * <pre>static BufferedImage sprite;<br>
+ * static String url = "path/to/image.png";</pre><br>
  * <br>
  * <b>In the constructor</b><br>
  * <pre>sprite = this.loadImage(this.url);</pre><br>
  * <br>
  * <b>In the render method</b><br>
- * <code>this.drawSprite(g, sprite, (int)this.x, (int)this.y);</code>
+ * <pre>this.drawSprite(g, sprite, (int)this.x, (int)this.y);</pre>
  */
 public interface GraphicalObject {
 	

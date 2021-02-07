@@ -6,20 +6,20 @@ import java.util.LinkedList;
  * This interface extends CollidingObject, so you only need to implement this one.<br>
  * <br>
  * <b>In the constructor</b><br>
- * <code>CollidingObject.addCollider(this);</code><br>
- * <code>SolidCollider.addSolidCollider(this);</code><br>
+ * <pre>CollidingObject.addCollider(this);</pre><br>
+ * <pre>SolidCollider.addSolidCollider(this);</pre><br>
  * <br>
  * <b>In the tick method</b><br>
- * <code>CollidingObject.getCollisions(this);</code><br>
- * Before your movement code, use <code>CollidingObject.willCauseSolidCollision(this, ...);</code><br>
+ * <pre>CollidingObject.getCollisions(this);</pre><br>
+ * Before your movement code, use <pre>CollidingObject.willCauseSolidCollision(this, ...);</pre><br>
  * <i>Example</i><br>
- * <code>if(!SolidCollider.willCauseSolidCollision(this, this.velX, true)) {
+ * <pre>if(!SolidCollider.willCauseSolidCollision(this, this.velX, true)) {
 			this.x += this.velX;
 		}
 		if(!SolidCollider.willCauseSolidCollision(this, this.velY, false)) {
 			this.y += this.velY;
 		}
-	</code>
+	</pre>
  */
 public interface SolidCollider extends CollidingObject{
 	/**
@@ -40,14 +40,14 @@ public interface SolidCollider extends CollidingObject{
 	/**
 	 * Determines if a given movement along a single axis will cause a collision with a solid object<br>
 	 * Should be used to determine if a given movement can be performed e.g.<br>
-	 * <code>
+	 * <pre>
 	 * if(!SolidCollider.willCauseSolidCollision(this, this.velX, true)) {
 			this.x += this.velX;
 		}
 		if(!SolidCollider.willCauseSolidCollision(this, this.velY, false)) {
 			this.y += this.velY;
 		}
-	 * </code>
+	 * </pre>
 	 * @param o The CollidingObject you'd like to test for potential collisions
 	 * @param vel The velocity in the direction specified by the xAxis param
 	 * @param xAxis A boolean identifying the direction of proposed movement
