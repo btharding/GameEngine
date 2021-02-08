@@ -30,8 +30,9 @@ public abstract class GameObject {
 	/**
 	 * Required function for all subclasses<br>
 	 * Performs any operations that should be performed every frame
+	 * @param delta Delta time - used to synchronise tick operations
 	 */
-	public abstract void tick();
+	public abstract void tick(double delta);
 	
 	/**
 	 * Required function for all subclasses<br>

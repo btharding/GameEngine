@@ -49,17 +49,17 @@ public interface SolidCollider extends CollidingObject{
 		}
 	 * </pre>
 	 * @param o The CollidingObject you'd like to test for potential collisions
-	 * @param vel The velocity in the direction specified by the xAxis param
+	 * @param vel The velocity in the direction specified by the xAxis param (usually multiplied a velocity value multiplied by delta time)
 	 * @param xAxis A boolean identifying the direction of proposed movement
 	 * @return A boolean representing whether a collision will occur by a proposed action
 	 */
-	static boolean willCauseSolidCollision(CollidingObject o, int vel, boolean xAxis) {
+	static boolean willCauseSolidCollision(CollidingObject o, double vel, boolean xAxis) {
 		Rectangle oBounds = o.getBounds();
 		Rectangle newBounds;
 		if(xAxis) {
-			newBounds = new Rectangle(oBounds.x + vel, oBounds.y, oBounds.width, oBounds.height);
+			newBounds = new Rectangle((int)(oBounds.x + vel), oBounds.y, oBounds.width, oBounds.height);
 		}else {
-			newBounds = new Rectangle(oBounds.x, oBounds.y + vel, oBounds.width, oBounds.height);
+			newBounds = new Rectangle(oBounds.x, (int)(oBounds.y + vel), oBounds.width, oBounds.height);
 		}
 		for(int i = 0; i < solidColliders.size(); i ++) {
 			SolidCollider s = solidColliders.get(i);

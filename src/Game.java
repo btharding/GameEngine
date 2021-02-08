@@ -32,9 +32,10 @@ public class Game extends Canvas implements Runnable{
 	/**
 	 * For everything that you want performed every frame.<br>
 	 * Try to abstract everything to class-level tick() functions, rather than here
+	 * @param delta The delta time generated in the run function
 	 */
-	private void tick() {
-		handler.tick();
+	private void tick(double delta) {
+		handler.tick(delta);
 	}
 	
 	/**
@@ -97,26 +98,60 @@ public class Game extends Canvas implements Runnable{
 		double ns = 1000000000 / amountOfTicks;
 		double delta = 0;
 		long timer = System.currentTimeMillis();
-//		int frames = 0;
+		int frames = 0;
 		while(running) {
 			long now = System.nanoTime();
 			delta += (now-lastTime)/ns;
 			lastTime = now;
 			while(delta >= 1) {
-				tick();
+				tick(delta);
 				delta--;
 			}
 			if(running) {
 				render();
-//				frames ++;
+				frames ++;
+				
 			
 				if(System.currentTimeMillis() - timer >1000) {
 					timer += 1000;
-//					frames = 0;
+					System.out.println(frames);
+					frames = 0;
 				}
 			}
 		}
 		stop();		
 	}
+	
+//	public void run() {
+//		double targetFPS = 60;
+//		double timePerFrame = 1000/targetFPS;
+//		long sleepTime = 0;
+//		long overtime = 0;
+//		long time1 = System.currentTimeMillis();
+//		while(running) {
+//			tick(1);
+//			render();
+//			
+//			sleepTime = (long) (timePerFrame - (System.currentTimeMillis() - time1) + overtime);
+//			if(sleepTime > 0) {
+//				time1 = System.currentTimeMillis();
+//				try {
+//					Thread.sleep(sleepTime);
+//				}catch(Exception e) {
+//					e.printStackTrace();
+//				}
+//				overtime = sleepTime - (System.currentTimeMillis() - time1);
+//			}else if(sleepTime < 0) {
+//				overtime = sleepTime;
+//				while(-overtime >= timePerFrame) {
+//					tick(1);
+//					render();
+//					overtime = (long) (overtime + timePerFrame);
+//				}
+//			}
+//			time1 = System.currentTimeMillis();
+//		}
+//		stop();
+//	}
 
 }

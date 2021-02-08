@@ -17,7 +17,7 @@ public class ExampleMouseListener extends GameObject implements GraphicalObject,
 	}
 
 	@Override
-	public void tick() {
+	public void tick(double delta) {
 		CollidingObject.getCollisions(this);
 		this.x = (float) (MouseInput.mousePos.x - (0.5*this.width));
 		this.y = (float) (MouseInput.mousePos.y - (0.5*this.height));

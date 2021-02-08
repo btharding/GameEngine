@@ -21,18 +21,18 @@ public class ExampleKeyListener extends GameObject implements KeyListener, Graph
 		Game.handler.addObject(this);
 	}
 
-	public void tick() {
-		move();
+	public void tick(double delta) {
+		move(delta);
 		CollidingObject.getCollisions(this);
 		
 	}
 	
-	private void move() {
-		if(!SolidCollider.willCauseSolidCollision(this, this.velX, true)) {
-			this.x += this.velX;
+	private void move(double delta) {
+		if(!SolidCollider.willCauseSolidCollision(this, delta * this.velX, true)) {
+			this.x += (delta * this.velX);
 		}
-		if(!SolidCollider.willCauseSolidCollision(this, this.velY, false)) {
-			this.y += this.velY;
+		if(!SolidCollider.willCauseSolidCollision(this, delta * this.velY, false)) {
+			this.y += (delta * this.velY);
 		}
 	}
 
