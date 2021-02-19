@@ -8,15 +8,23 @@ package game;
  */
 public interface GravityObject {
 	
-	public float gravityRate = 1f;
+	public float gravityRate = 0.35f;
 
 	
 	default void fall(GravityObject o) {
-		if(o.getVelY() + gravityRate >= o.getTerminalVel()) {
-			o.setVelY(o.getVelY()+gravityRate);
+		float currentVelY = o.getVelY();
+		float terminalVel = o.getTerminalVel();
+		float newVelY = currentVelY + gravityRate;
+		if(newVelY > terminalVel) {
+			o.setVelY(terminalVel);
 		}else {
-			o.setVelY(o.getTerminalVel());
+			o.setVelY(newVelY);
 		}
+//		if(o.getVelY() + gravityRate >= o.getTerminalVel()) {
+//			o.setVelY(o.getVelY()+gravityRate);
+//		}else {
+//			o.setVelY(o.getTerminalVel());
+//		}
 	}
 	
 	void setVelY(float velY);

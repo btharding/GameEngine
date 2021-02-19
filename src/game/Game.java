@@ -30,6 +30,8 @@ public class Game extends Canvas implements Runnable{
 		currentLevel.addEntity(player);
 		Platform p = new Platform(0, Window.HEIGHT-32, Window.WIDTH, 32);
 		currentLevel.addPlatform(p);
+		p = new Platform(100, Window.HEIGHT-96, 150, 32);
+		currentLevel.addPlatform(p);
 	}
 	
 	private void tick() {

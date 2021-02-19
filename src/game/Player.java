@@ -43,15 +43,15 @@ public class Player extends GameObject implements GraphicalObject, SolidCollider
 		}
 		if(!SolidCollider.willCauseSolidCollision(this, velX, true)) {
 			this.x += velX;
-		}else {
-			Rectangle s = SolidCollider.nextCollision(this, this.velX, true).getBounds();
-			if(this.velX > 0) {
-				this.x = s.x - this.width;
-				this.velX = 0;
-			}else {
-				this.x = s.x + s.width;
-				this.velX = 0;
-			}
+//		}else {
+//			Rectangle s = SolidCollider.nextCollision(this, this.velX, true).getBounds();
+//			if(this.velX > 0) {
+//				this.x = s.x - this.width;
+//				this.velX = 0;
+//			}else {
+//				this.x = s.x + s.width;
+//				this.velX = 0;
+//			}
 		}
 		if(!SolidCollider.willCauseSolidCollision(this, this.velY, false)) {
 			this.y += this.velY;
@@ -60,9 +60,10 @@ public class Player extends GameObject implements GraphicalObject, SolidCollider
 			if(this.velY > 0) {
 				this.y = s.y - this.height;
 				this.velY = 0;
-			}else {
-				this.y = s.y + s.height;
+			}else if(this.velY < 0 && !isOnGround()){
+				this.y = s.y - s.height;
 				this.terminalVelY = 0;
+				System.out.println("This is my fault");
 			}
 		}
 	}
