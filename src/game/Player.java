@@ -22,6 +22,7 @@ public class Player extends GameObject implements GraphicalObject, SolidCollider
 		SolidCollider.addSolidCollider(this);
 	}
 	
+	//TODO: Fix sticking into wall when moving in the air
 	public void tick() {
 		CollidingObject.getCollisions(this);
 		if(Game.keyInput.right.isPressed()) {
